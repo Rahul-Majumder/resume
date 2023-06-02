@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+  <script>
+    function copyToClipboard(elementId) {
+      var element = document.getElementById(elementId);
+      var tempInput = document.createElement("input");
+      tempInput.value = element.innerText;
+      document.body.appendChild(tempInput);
+      tempInput.select();
+      document.execCommand("copy");
+      document.body.removeChild(tempInput);
+      alert("Copied to clipboard: " + element.innerText);
+    }
+
+
+
+
+    function toggleDetails(detailsId) {
+  const detailsSection = document.getElementById(detailsId);
+  if (detailsSection.style.display === 'none') {
+    detailsSection.style.display = 'block';
+  } else {
+    detailsSection.style.display = 'none';
+  }
+}
+
+
+    
+
+    
+
+
+
+  </script>
+
+
+  <style>
+    body {
+      background-color: #5011e45d;
+      font-family: Arial, sans-serif;
+      color: #000000;
+    }
+    
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .container h1{
+      color: #ffffff;
+    }
+    .profile {
+      text-align: center;
+      margin-bottom: 20px;
+      padding: 30px;
+      border-radius: 5px;
+      background-color: #5011e4d5;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3)
+    }
+    
+    .profile img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease-in-out;
+      border: 4px solid white;
+    }
+    
+    .profile img:hover {
+      transform: scale(1.1);
+    }
+    
+    .profile h1 {
+      font-size: 34px;
+      margin: 10px 0;
+    }
+
+
+
+    .resume-download {
+  display: inline-block;
+  padding: 10px 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  background-color: #004e5c;
+  text-decoration: none;
+  color: #ffffff;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
+  bottom: 10px;
+  right: 10px;
+  z-index: 9999;
+  border: 2px solid white;
+}
+
+.resume-download:hover {
+  background-color: #ffffff;
+  color: #004e5c;
+}
+
+
+
+
+    
+    .social-links {
+      list-style-type: none;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-top: 30px;
+    }
+    
+    .social-links li {
+      margin: 10px;
+    }
+    
+    .social-links a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+      color: #ffffff;
+      border-radius: 50%;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+      transition: background-color 0.3s, transform 0.3s;
+      width: 50px;
+      height: 50px;
+      font-size: 24px;
+    }
+    
+    .social-links a:hover {
+      background-color: #5011e4;
+      transform: scale(1.1);
+    }
+    
+    .github {
+      background-color: #333333;
+    }
+    
+    .linkedin {
+      background-color: #0077B5;
+    }
+    
+    .youtube {
+      background-color: #FF0000;
+    }
+    
+    .instagram {
+      background-color: #E4405F;
+    }
+    
+    .facebook {
+      background-color: #3B5998;
+    }
+    
+    .resume-section {
+      margin-top: 30px;
+    }
+    
+
+    .copy-button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 3px;
+  }
+
+
+
+    .resume-section h2 {
+      font-size: 26px;
+      margin-bottom: 10px;
+      border-bottom: 2px solid #313C4D;
+      color: #313C4D;
+    }
+    
+    .resume-section ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .resume-section li {
+      padding-left: 10px;
+      margin-bottom: 10px;
+      background-color: #ffffff;
+      border-radius: 5px;
+      padding: 12px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+      border-right: 6px solid #313C4D;
+    }
+    
+    .resume-section li:last-child {
+      margin-bottom: 0;
+    }
+    
+    .resume-section p {
+      margin: 5px 0;
+    }
+    
+    .skills-section {
+      margin-top: 30px;
+    }
+    
+    .skills-section h2 {
+      font-size: 26px;
+      margin-bottom: 10px;
+      border-bottom: 2px solid #313C4D;
+      color: #313C4D;
+    }
+    
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 10px;
+    } 
+    
+    .skills-grid p:last-child {
+      margin-bottom: 0;
+    }
+    
+
+    .skills-grid p {
+  position: relative;
+  padding-left: 10px;
+  margin-bottom: 10px;
+  background-color: #5011e4;
+  color: #ffffff;
+  border-radius: 5px;
+  padding: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s, transform 0.3s;
+  /* cursor: pointer; */
+}
+
+.skills-grid p::after {
+  content: attr(data-description);
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px;
+  background-color: #ffffff; /* Changed to white */
+  color: #5011e4; /* Changed to the original color */
+  border-radius: 5px;
+  font-size: 14px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+}
+
+.skills-grid p::before {
+  /* Removed the content property and arrow styles */
+  position: absolute;
+  top: -8px;
+  left: calc(50% - 8px);
+  border-width: 8px;
+  border-style: solid;
+  border-color: transparent transparent #ffffff transparent; /* Changed arrow color to white */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+}
+
+.skills-grid p:hover {
+  background-color: #004e5c;
+  color: #ffffff;
+  transform: scale(1.05);
+  z-index: 9999;
+}
+
+/* .skills-grid p:hover::after,
+.skills-grid p:hover::before {
+  opacity: 1;
+  visibility: visible;
+}
+
+.skills-grid p::after {
+  left: 92px; 
+  width: 130px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  border: 3px solid #004e5c;  
+   /* Added border-radius to create a circular shape */
+} */ */
+
+
+
+
+    .projects-section {
+      margin-top: 30px;
+    }
+    
+    .projects-section h2 {
+      font-size: 26px;
+      margin-bottom: 10px;
+      border-bottom: 2px solid #313C4D;
+      color: #313C4D;
+    }
+    
+    .project {
+      background-color: #ffffff;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 10px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+      border-right: 6px solid #313C4D;
+    }
+    
+    .project h3 {
+      margin: 5px 0;
+    }
+    
+    .project p {
+      margin: 5px 0;
+    }
+    
+    .project a {
+      display: inline-block;
+      padding: 7px 17px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+      background-color: #004e5c;
+      text-decoration: none;
+      color: #ffffff;
+      border-radius: 5px;
+      transition: background-color 0.3s, color 0.3s;
+      border: 2px solid #004e5c;
+    }
+    
+    .project a:hover {
+      background-color: #ffffff;
+      color: #004e5c;
+      border: 2px solid #004e5c;
+    }
+
+
+
+
+    .details-button {
+  background-color: #004e5c;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  padding: 7px 17px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  border: 2px solid #004e5c;
+}
+
+.details-button:hover {
+  background-color: #ffffff;
+  color: #004e5c;
+}
+
+
+
+
+
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="profile">
+        <img src="Untitled design (36).png" alt="Profile Picture">
+        <h1>Rahul Majumder</h1>
+        <a href="Rahul Majumder Resume.pdf" download class="resume-download">
+          <i class="fas fa-download"></i> Download Resume
+        </a>
+      </div>
+      
+    
+    <ul class="social-links">
+      <li><a href="https://www.linkedin.com/in/rahul-majumder-491458208/" target="_blank" class="linkedin"><i class="fab fa-linkedin"></i></a></li>
+      <li><a href="https://www.youtube.com/channel/UCprqdXoihCsPYjfcfII32aw" target="_blank" class="youtube"><i class="fab fa-youtube"></i></a></li>
+      <li><a href="https://github.com/Rahul-Majumder" target="_blank" class="github"><i class="fab fa-github"></i></a></li>
+      <!-- <li><a href="https://instagram.com/your-instagram" target="_blank" class="instagram"><i class="fab fa-instagram"></i></a></li>
+      <li><a href="https://facebook.com/your-facebook" target="_blank" class="facebook"><i class="fab fa-facebook"></i></a></li> -->
+    </ul>
+    <div class="resume-section">
+        <h2>Description</h2>
+        <ul>
+          <li>
+              <p>As a skilled and self-motivated individual with expertise in Excel, SQL, and Power BI, I am seeking a challenging opportunity to contribute 
+                  my technical skills and experience to a dynamic organization. Despite not completing a formal graduation, 
+                  my diploma in Civil Engineering has equipped me with a strong foundation in problem-solving, critical thinking, and attention to detail.</p>
+            </li>
+        </ul>
+      </div>
+      <div class="resume-section">
+        <h2>Contact</h2>
+        <ul class="contact">
+          <li>
+            <p>Email: <span id="email">okrahulmajumder@gmail.com</span> <button class="copy-button" onclick="copyToClipboard('email')">Copy</button></p>
+          </li>
+          <li>
+            <p>Phone: <span id="phone">+91 6296364398</span> <button class="copy-button" onclick="copyToClipboard('phone')">Copy</button></p>
+          </li>
+        </ul>
+      </div>
+    
+    <div class="skills-section">
+      <h2>Skills</h2>
+     <div class="skills-grid">
+  <p data-description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique adipisci molestiae vitae quam. Beatae eos odio modi ad in rerum eius maxime porro eum.">MS Office</p>
+  <p data-description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique adipisci molestiae vitae quam. Beatae eos odio modi ad in rerum eius maxime porro eum.">SQL</p>
+  <p data-description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique adipisci molestiae vitae quam. Beatae eos odio modi ad in rerum eius maxime porro eum.">Power BI</p>
+  <p data-description="TLorem ipsum dolor sit amet consectetur adipisicing elit. Similique adipisci molestiae vitae quam. Beatae eos odio modi ad in rerum eius maxime porro eum.">Tableau</p>
+  <p data-description="PythonLorem ipsum dolor sit amet consectetur adipisicing elit. Similique adipisci molestiae vitae quam. Beatae eos odio modi ad in rerum eius maxime porro eum.">Python</p>
+  <p data-description="Data AnalysisLorem ipsum dolor sit amet consectetur adipisicing elit. Similique adipisci molestiae vitae quam. Beatae eos odio modi ad in rerum eius maxime porro eum.">Data Analysis</p>        
+  <p data-description="Critical ThinkingLorem ipsum dolor sit amet consectetur adipisicing elit. Similique adipisci molestiae vitae quam. Beatae eos odio modi ad in rerum eius maxime porro eum.">Critical Thinking</p>
+  <p data-description="Problem SolvingLorem ipsum dolor sit amet consectetur adipisicing elit. Similique adipisci molestiae vitae quam. Beatae eos odio modi ad in rerum eius maxime porro eum.">Problem Solving</p>
+  <p data-description="Advanced ExcelLorem ipsum dolor sit amet consectetur adipisicing elit. Similique adipisci molestiae vitae quam. Beatae eos odio modi ad in rerum eius maxime porro eum.">Advanced Excel</p>
+  <p data-description="Google SheetsLorem ipsum dolor sit amet consectetur adipisicing elit. Similique adipisci molestiae vitae quam. Beatae eos odio modi ad in rerum eius maxime porro eum.">Google Sheets</p>
+  <p data-description="Google FormsLorem ipsum dolor sit amet consectetur adipisicing elit. Similique adipisci molestiae vitae quam. Beatae eos odio modi ad in rerum eius maxime porro eum.">Google Forms</p>
+  <p data-description="HTMLLorem ipsum dolor sit amet consectetur adipisicing elit. Similique adipisci molestiae vitae quam. Beatae eos odio modi ad in rerum eius maxime porro eum.">HTML</p>
+  <p data-description="CSSLorem ipsum dolor sit amet consectetur adipisicing elit. Similique adipisci molestiae vitae quam. Beatae eos odio modi ad in rerum eius maxime porro eum.">CSS</p>
+</div>
+
+    </div>
+    
+    <div class="resume-section">
+        <h2>Work Experience</h2>
+        <ul>
+          <li>
+            <p> <B>FULL STACK WEB DEVELOPMENT</B> </p>
+            <p>TRANING AND INTERNSHIP PROGRAM</p>
+            <p>Shape AI</p>
+            <p>SEP-DEC (2021)</p>
+          </li>
+          <!-- <li>
+            <p>Web Developer</p>
+            <p>ABC Agency</p>
+            <p>2014 - 2015</p>
+          </li> -->
+        </ul>
+      </div>
+ 
+
+    
+    <div class="projects-section">
+      <h2>Projects</h2>
+      <div class="project">
+        <h3>Capstoen Project 1 (SQL)</h3>
+        <p>Relevel</p>
+        <p><a href="https://drive.google.com/file/d/1P22F-Z2uJEpA9QYGvSGv4NaZKvwT4FNl/view?usp=drive_link">View Project</a></p>
+      </div>
+      <div class="project">
+        <h3>Capstoen Project 2 (SQL)</h3>
+        <p>Relevel</p>
+        <p><a href="https://drive.google.com/file/d/1kT6BLLoE6HD45_DZOACmpuP11hG_mqmg/view?usp=drive_link">View Project</a></p>
+      </div>
+      <div class="project">
+        <h3>NETFLIX Case Study (SQL)</h3>
+        <p><a href="https://drive.google.com/file/d/148TPRRqtF0Qvdmuiz6wvc_QrVpxa3o_h/view?usp=drive_link">View Project</a></p>
+      </div>
+      <div class="project">
+        <h3> COVID-19 BI Project (Power BI)</h3>
+        <p><a href="https://drive.google.com/drive/folders/1NriFBGQpkso6Tl7jNGADQkMRnmwZ_RYo?usp=sharing">View Project</a></p>
+      </div>
+      <div class="project">
+        <h3>QUORA CLONE</h3>
+        <p>Shape AI</p>
+        <p><a href="https://github.com/Rahul-Majumder/Quora-clone">View Project</a></p>
+      </div>
+    </div>
+
+    <div class="resume-section">
+      <h2>Education</h2>
+      <ul>
+        <li>
+          <p> <B>BUSINESS ANALYTICS</B> </p>
+          <p>RELEVEL</p>
+          <p>2022 - 2023</p>
+          <!-- <button class="details-button" onclick="toggleDetails('details1')">Details</button>
+      <div id="details1" style="display: none;">
+        <p>Additional details about the education... Lorem ipsum, dolor sit amet consectetur adipisicing 
+            elit. Et accusantium dolorum nesciunt earum ipsam. Tempora libero maiores eveniet aperiam natus 
+            alias sunt, quisquam animi quae harum mollitia, laborum vitae molestiae commodi aliquid pariatur 
+            placeat! Cum quisquam harum corrupti tempore impedit incidunt. Cumque ipsam asperiores quae aut 
+            itaque voluptates reprehenderit quidem vel, cum autem pariatur nisi minus labore fugiat, natus 
+            temporibus voluptatem rem obcaecati ratione quasi impedit. Quae veniam doloribus vel cumque 
+            repudiandae porro consequatur alias laudantium hic sapiente totam, rerum, odio necessitatibus 
+            eum tenetur neque tempora, amet molestias! Eius, debitis. Magni error incidunt hic pariatur nemo 
+            repellat debitis dignissimos maxime.</p>
+      </div> -->
+        </li>
+        <li>
+          <p> <B>DIPLOMA | CIVIL ENGINEERING</B> </p>
+          <p>Coochbehar Polytechnic</p>
+          <p>2018 - 2021</p>
+          <!-- <button class="details-button" onclick="toggleDetails('details1')">Details</button>
+      <div id="details1" style="display: none;">
+        <p>Additional details about the education...</p>
+      </div> -->
+        </li>
+        <li>
+            <p> <B>12th Boards | WBCHSE | Arts</B> </p>
+            <p>Mathabhanga High School</p>
+            <p>2016 - 2018</p>
+            <!-- <button class="details-button" onclick="toggleDetails('details1')">Details</button>
+      <div id="details1" style="display: none;">
+        <p>Additional details about the education...</p>
+      </div> -->
+          </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Include Font Awesome for icons -->
+  <script src="https://kit.fontawesome.com/your-font-awesome-key.js" crossorigin="anonymous"></script>
+</body>
+</html>
